@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export class SetpOne extends Component {
+export class Design extends Component {
     
     continue = e => {
         e.preventDefault();
@@ -16,4 +16,4 @@ export class SetpOne extends Component {
     }
 }
 
-export default SetpOne;
+export default Design;

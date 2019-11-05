@@ -1,11 +1,13 @@
 import React from 'react';
 import './App.css';
-import StepForm from './components/StepForm';
+import MainForm from './components/MainForm';
 
 function App() {
   return (
     <div className="App">
-      <StepForm />
+      <div className="Content">
+        <MainForm />
+      </div>
     </div>
   );
 }
