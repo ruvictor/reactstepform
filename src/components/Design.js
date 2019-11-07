@@ -8,6 +8,7 @@ export class Design extends Component {
     }
 
     render(){
+        const { isBtnActive, basicDesign } = this.props;
         return(
             <div>
                 Step One here
