@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import PersonalInfo from './PersonalInfo';
+import JobDetails from './JobDetails';
+import AllInfo from './AllInfo';
 
 export class StepForm extends Component {
     state = {
@@ -11,7 +13,9 @@ export class StepForm extends Component {
         email: '',
 
         // step 2
-        job: '',
+        jobTitle: '',
+        jobCompany: '',
+        jobLocation: ''
 
     }
 
@@ -31,11 +35,11 @@ export class StepForm extends Component {
     }
 
     handleChange = input => e => {
-        this.setState({[input]: e.target.value, isBtnActive: false});
+        this.setState({[input]: e.target.value});
     }
 
     showStep = () => {
-        const { step, firstName, lastName } = this.state;
+        const { step, firstName, lastName, jobTitle, jobCompany, jobLocation } = this.state;
 
         if(step === 1)
             return (<PersonalInfo 
@@ -44,6 +48,24 @@ export class StepForm extends Component {
                 firstName={firstName} 
                 lastName={lastName}
             />);
+        if(step === 2)
+            return (<JobDetails 
+                nextStep = {this.nextStep} 
+                prevStep = {this.prevStep}
+                handleChange = {this.handleChange} 
+                jobTitle={jobTitle} 
+                jobCompany={jobCompany}
+                jobLocation={jobLocation}
+            />);
+        if(step === 3)
+            return (<AllInfo 
+                firstName={firstName} 
+                lastName={lastName}
+                jobTitle={jobTitle} 
+                jobCompany={jobCompany}
+                jobLocation={jobLocation}
+                prevStep = {this.prevStep}
+            />);
     }
 
     render(){
@@ -51,15 +73,8 @@ export class StepForm extends Component {
 
         return(
             <>
-                <h2>Step {step} of 7.</h2>
-                <div className="FlexDisplay">
-                    <div className="LeftSide">
-                        {this.showStep()}
-                    </div>
-                    <div className="RightSide">
-                        Prices
-                    </div>
-                </div>
+                <h2>Step {step} of 3.</h2>
+                {this.showStep()}
             </>
         );
     }

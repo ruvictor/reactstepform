@@ -7,7 +7,7 @@ class PersonalInfo extends Component{
     }
 
     render(){
-        const { fisrtName, lastName, handleChange } = this.props;
+        const { firstName, lastName, handleChange } = this.props;
         return(
             <>
                 <h2>Enter your personal information:</h2>
@@ -15,7 +15,8 @@ class PersonalInfo extends Component{
                     <input 
                         type="text"
                         name="firstName"
-                        value={fisrtName}
+                        value={firstName}
+                        placeholder="First Name"
                         onChange={handleChange('firstName')}
                     />
                 </label>
@@ -24,9 +25,13 @@ class PersonalInfo extends Component{
                         type="text"
                         name="lastName"
                         value={lastName}
+                        placeholder="Last Name"
                         onChange={handleChange('lastName')}
                     />
                 </label>
+                <button className="Next" onClick={this.continue}>
+                    Next »
+                </button>
             </>
         );
     }
