@@ -1,12 +1,12 @@
 import React from 'react';
 import './App.css';
-import MainForm from './components/MainForm';
+import Main from './components/Main';
 
 function App() {
   return (
     <div className="App">
       <div className="Content">
-        <MainForm />
+        <Main />
       </div>
     </div>
   );

@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
-import Design from './Design';
+import PersonalInfo from './PersonalInfo';
 
 export class StepForm extends Component {
     state = {
         step: 1,
 
         // step 1
-        basicDesign: 0,
+        firstName: '',
+        lastName: '',
+        email: '',
 
         // step 2
-        pageContentType: 0,
-        howManyPages: 0,
+        job: '',
 
-        isBtnActive: true
     }
 
     nextStep = () => {
@@ -35,14 +35,14 @@ export class StepForm extends Component {
     }
 
     showStep = () => {
-        const { step, isBtnActive, basicDesign } = this.state;
+        const { step, firstName, lastName } = this.state;
 
         if(step === 1)
-            return (<Design 
+            return (<PersonalInfo 
                 nextStep = {this.nextStep} 
                 handleChange = {this.handleChange} 
-                isBtnActive={isBtnActive} 
-                basicDesign={basicDesign}
+                firstName={firstName} 
+                lastName={lastName}
             />);
     }
 
